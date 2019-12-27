@@ -26,7 +26,7 @@
         - 平均大眾螢幕都是60HZ 渲染時間為1000ms / 60HZ = 16~17ms 最晚在這個時間會渲染一次
         - 高階一點的顯示器都是 120HZ、144HZ 渲染時間為 0.8ms 及 0.6~0.7ms
     - 根據功能來說，如果做滑順的動畫可以使用 requestAnimationFrame 而且不礙於程式方面的 queue
-    - 以時鐘來說每秒都是固定 1000ms ，所以使用 setTimeout, setInterval 最方便，若使用 requestAnimationFrame 也可，但效率跟幫助並沒有特別提升
+    - 以時鐘來說每秒都是固定 1000ms ，所以使用 setTimeout, setInterval 最方便，若使用 requestAnimationFrame 也可，但效率跟幫助並沒有特別提升｀
 
 -----
 
