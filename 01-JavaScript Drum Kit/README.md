@@ -1,7 +1,7 @@
 # JS30 day1 - JavaScript Drum Kit
 -----
 
-<img src="./JSday1_home.png"> 
+<img src="./JSday1_home.png" style="max-width:100%"> 
 
 #### day1 的功能是透過點擊按鍵發出樂器聲音
 #### 這裡要注意的事件有幾項
