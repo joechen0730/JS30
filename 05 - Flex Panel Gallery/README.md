@@ -17,6 +17,7 @@
     - Flex 為 CSS display 的屬性，可參考下列連結
     - <a href="https://github.com/ccforward/cc/issues/60"> Flex-basis & Flex-shrink 解析</a>
     - <a href="https://cythilya.github.io/2017/04/06/flexbox-advance/"> 圖解 Flex 進階屬性</a>
+    - <a href="https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/"> Flex 操作 </a>
 
 1. 修改原本功能 -> (逐一展開及縮放) => (僅展開一個其餘正常) 
 
