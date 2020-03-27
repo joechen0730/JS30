@@ -1,4 +1,4 @@
-# JS30 day2 - JavaScript and CSS Clock
+# JS30 day4 - Array Cardio Day 1
 ---
 
 <img src="./JSday_4_home.png" style="max-width:100%"> 
