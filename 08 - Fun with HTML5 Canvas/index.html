@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<style>
+    html, body {
+    margin: 0;
+  }
+  .flex {
+    display: flex;
+    padding: 10px;
+  }
+  .flex div {
+    flex: 1 1 0;
+  }
+</style>
+<body>
+<div class="flex">
+  <div>
+    <label>color</label>
+    <input type="color" value="#BADA55" id="colorPicker">
+  </div>
+  <div>
+    <label>line width</label>
+    <input type="range" id="widthPicker" value="1" min='1' max="100">
+  </div>
+</div>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+  (function() {
+    const draw = document.querySelector('#draw');
+    const colorPicker = document.querySelector('#colorPicker'); 
+    const widthPicker = document.querySelector('#widthPicker');
+    const ctx = draw.getContext('2d');
+    draw.width = window.outerWidth;
+    draw.hight = window.outerHeight;
+    ctx.strokeStyle = '#BADA55';
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    // ctx.globalCompositeOperation = 'multiply';
+    let focus = false;
+    let lastOffsetX = 0;
+    let lastOffsetY = 0;
+    draw.addEventListener('mousedown', mouse_Down);
+    draw.addEventListener('mousemove', mouse_Move);
+    draw.addEventListener('mouseup', () => focus = false);
+    draw.addEventListener('mouseout', () => focus = false);
+    colorPicker.addEventListener('change', color_Change);
+    widthPicker.addEventListener('change', linewidth_Change);
+
+    function mouse_Down(event) {
+      focus = true;
+      [lastOffsetX, lastOffsetY] = [event.offsetX, event.offsetY];
+    };
+
+    function mouse_Move(event) {
+      if(!focus) return 
+      let currentOffsetX = event.offsetX;
+      let currentOffsetY = event.offsetY;
+      ctx.beginPath();
+      ctx.moveTo(lastOffsetX, lastOffsetY);
+      ctx.lineTo(currentOffsetX, currentOffsetY);
+      ctx.stroke();
+      [lastOffsetX, lastOffsetY] = [currentOffsetX, currentOffsetY];
+    };
+    function color_Change(event) {
+      ctx.strokeStyle = event.target.value
+    }
+    function linewidth_Change(event) {
+      ctx.lineWidth = event.target.value
+    }
+  })()
+
+
+</script>
+</body>
+</html>
