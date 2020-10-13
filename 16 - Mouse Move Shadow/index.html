@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Shadow</title>
+</head>
+<body>
+
+  <div class="hero">
+    <h1 contenteditable>🔥WOAH!</h1>
+  </div>
+
+  <style>
+  html {
+    color: black;
+    font-family: sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+
+  h1 {
+    text-shadow: 10px 10px 0 rgba(0,0,0,1);
+    font-size: 100px;
+  }
+  </style>
+
+<script>
+  const hero = document.querySelector('.hero');
+  const text = hero.querySelector('h1');
+  hero.addEventListener('mousemove', move_text)
+  function move_text(e){
+    const {offsetWidth, offsetHeight} = hero;
+    let {offsetX, offsetY} = e;
+    if(this !== e.target) {
+      offsetX += e.target.offsetLeft;
+      offsetY += e.target.offsetTop;
+    }
+    offsetX = Math.floor((offsetX/offsetWidth)*100)*2 ;
+    offsetY = Math.floor((offsetY/offsetHeight)*100)*2 ;
+    text.style.textShadow = `
+      ${offsetX}px ${offsetY}px 0 rgba(255,0,255,0.7),
+      ${offsetX * -1}px ${offsetY}px 0 rgba(0,255,255,0.7),
+      ${offsetY}px ${offsetX * -1}px 0 rgba(0,255,0,0.7),
+      ${offsetY * -1}px ${offsetX}px 0 rgba(0,0,255,0.7)
+    `;
+  }
+</script>
+</body>
+</html>
